@@ -4,12 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.List;
 
 public class LoginPage extends BasePage{
 
     @FindBy(xpath = "//legend[@class='w-auto']")
-    private WebElement loginHeaderText;
+    private WebElement loginText;
 
     @FindBy(id = "username")
     private WebElement usernameInput;
@@ -34,6 +33,7 @@ public class LoginPage extends BasePage{
         verifyDisplayed(usernameInput, "The login page did not open (username field not found).");
         verifyDisplayed(passwordInput, "he login page did not open (password field not found).");
         verifyDisplayed(loginBtn,      "The login page did not open (login button not found).");
+        verifyDisplayed(loginText, "The login page did not open (login text not found)");
         LOGGER.info("Login page verified");
     }
 
