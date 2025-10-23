@@ -7,22 +7,31 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
-    @FindBy(xpath = "//legend[@class='w-auto']")
-    private WebElement loginText;
+    @FindBy(xpath = "//div[@class='-esm-login__login__center___+yhR+']")
+    private WebElement openMRSText;
 
-    @FindBy(id = "username")
+    @FindBy(xpath = "//input[@id=\"username\"]")
     private WebElement usernameInput;
 
-    @FindBy(id = "password")
+    @FindBy(xpath = "//button[@class='-esm-login__login__continueButton___VnN+0 cds--btn cds--btn--primary']")
+    private WebElement contınueBtn;
+
+    @FindBy(xpath = "//input[@id='password']")
     private WebElement passwordInput;
 
-    @FindBy(id = "loginButton")
+    @FindBy(xpath = "//button[@class='-esm-login__login__continueButton___VnN+0 cds--btn cds--btn--primary']")
     private WebElement loginBtn;
 
-    @FindBy(xpath = "//li[@id='Inpatient Ward']")
-    private WebElement inpatientWardLocation;
+    @FindBy(xpath = "//p[@class='-esm-login__location-picker__welcomeTitle___iI+4Z']")
+    private WebElement welcomeAdminText;
 
-    @FindBy(id = "error-message")
+    @FindBy(xpath = "//span[@class='cds--radio-button__label-text']/span")
+    private WebElement outpatientClinicSelectBtn;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    private WebElement confirmBtn;
+
+    @FindBy(xpath = "//div[@class='cds--inline-notification__subtitle']")
     private WebElement invalidMessage;
 
     public LoginPage(final WebDriver driver) {
@@ -33,7 +42,11 @@ public class LoginPage extends BasePage{
         verifyDisplayed(usernameInput, "The login page did not open (username field not found).");
         verifyDisplayed(passwordInput, "he login page did not open (password field not found).");
         verifyDisplayed(loginBtn,      "The login page did not open (login button not found).");
-        verifyDisplayed(loginText, "The login page did not open (login text not found)");
+        verifyDisplayed(openMRSText, "The login page did not open (login text not found)");
+        verifyDisplayed(welcomeAdminText, "The welcome admin text is not visible. ");
+        verifyDisplayed(invalidMessage, "Invalid login message not displayed");
+        verifyDisplayed(contınueBtn,"contınue button is not visible");
+        verifyDisplayed(confirmBtn,"confirm button is not visible");
         LOGGER.info("Login page verified");
     }
 
@@ -44,9 +57,9 @@ public class LoginPage extends BasePage{
         LOGGER.info("Password entered");
     }
 
-    public void selectInpatientWard() {
-        verifyDisplayed(inpatientWardLocation, "The ‘Inpatient Ward’ location is not visible.");
-        clickElement(inpatientWardLocation);
+    public void outpatientClinic() {
+        verifyDisplayed(outpatientClinicSelectBtn, "The ‘Inpatient Ward’ location is not visible.");
+        clickElement(outpatientClinicSelectBtn);
         LOGGER.info("'Inpatient Ward' location selected");
     }
 
@@ -57,6 +70,16 @@ public class LoginPage extends BasePage{
     public void checkInvalidCredentialsMessage() {
         verifyDisplayed(invalidMessage, "The invalid username/password warning is not visible.");
         LOGGER.info("Invalid credentials message visible");
+    }
+
+    public void clickContinueBtn(){
+        clickElement(contınueBtn);
+        LOGGER.info("Contınue button clicked");
+    }
+
+    public void clickConfirmBtn(){
+        clickElement(confirmBtn);
+        LOGGER.info("confırm button clicked");
     }
 
 }
