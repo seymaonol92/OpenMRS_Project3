@@ -18,7 +18,7 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//*[@id='search-input-:rer:']")
     private WebElement sendKeySearchBox;
 
-    @FindBy(xpath = " //*[@id=\"single-spa-application:@openmrs/esm-primary-navigation-app-page-0\"]/div/header/div[3]/div[1]/div[3]/span/div/button/svg")
+    @FindBy(xpath = "//div[@data-extension-id='add-patient-action']//button[@aria-label='Add patient']")
     private WebElement clickAddPatient;
 
     @FindBy(xpath = "//*[name()='svg' and .//*[name()='use' and contains(@href,'omrs-icon-user-avatar')]]")
