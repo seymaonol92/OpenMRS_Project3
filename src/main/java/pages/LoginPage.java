@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 
 public class LoginPage extends BasePage{
@@ -10,7 +11,7 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//div[@class='-esm-login__login__center___+yhR+']")
     private WebElement openMRSText;
 
-    @FindBy(xpath = "//input[@id=\"username\"]")
+    @FindBy(xpath = "//input[@id='username']")
     private WebElement usernameInput;
 
     @FindBy(xpath = "//button[@class='-esm-login__login__continueButton___VnN+0 cds--btn cds--btn--primary']")
@@ -60,9 +61,13 @@ public class LoginPage extends BasePage{
             LOGGER.info("Invalid message verified");
     }
 
-    public void fillLoginForm(final String username, final String password) {
+    public void enterUsername(final String username) {
         sendKeysToElement(usernameInput, username);
         LOGGER.info("Username entered");
+
+
+    }
+    public void enterPassword(final String password) {
         sendKeysToElement(passwordInput, password);
         LOGGER.info("Password entered");
     }
