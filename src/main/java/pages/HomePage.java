@@ -1,7 +1,10 @@
 package pages;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
 
@@ -10,11 +13,8 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//a[@class='zak-button']")
     private WebElement demoButton;
 
-    @FindBy(xpath = "//span[contains(text(),'Explore OpenMRS 2')]")
-    private WebElement exploreOpenMRS2;
-
-    @FindBy(xpath = "//span[contains(text(),'Enter the OpenMRS 2')]")
-    private WebElement enterOpenMRS2;
+    @FindBy(xpath = "//*[@id=\"zak-content\"]/div/div/div/section[5]/div/div/div/div[2]/div/div/a/span/span")
+    private WebElement enterOpenMRS3;
 
     public HomePage(final WebDriver driver){
         super(driver);
@@ -30,14 +30,15 @@ public class HomePage extends BasePage{
         LOGGER.info("Demo button clicked");
     }
 
-    public void clickExploreOpenMRS(){
-        clickElement(exploreOpenMRS2);
-        LOGGER.info("Explore OpenMRS button clicked");
+    public void clickEnterOpenMRS(){
+        clickElement(enterOpenMRS3);
+        LOGGER.info("Enter the OpenMRS Demo link clicked");
     }
 
-    public void clickEnterOpenMRS(){
-        clickElement(enterOpenMRS2);
-        LOGGER.info("Enter the OpenMRS Demo link clicked");
+    public void scrollDown() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("window.scrollBy(0, 500);");
+        LOGGER.info("The scroll worked successfully.");
     }
 }
 

@@ -1,6 +1,4 @@
-package US402_UserLoginFunctionality;
-
-public class ismailAhmed {
+public class US_401 {
     public static void main(String[] args) {
         System.out.println("s");
     }
