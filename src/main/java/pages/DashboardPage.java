@@ -24,6 +24,9 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//*[name()='svg' and .//*[name()='use' and contains(@href,'omrs-icon-user-avatar')]]")
     private WebElement myAccountLink ;
 
+    @FindBy(xpath = "//button[@class='-esm-login__logout__logout___fmll0 cds--btn cds--btn--ghost']")
+    private WebElement clickLogOut;
+
     @FindBy(xpath = "//*[name()='use' and contains(@href,'omrs-icon-switcher')]/parent::*")
     private WebElement appMenu ;
 
@@ -75,6 +78,10 @@ public class DashboardPage extends BasePage {
     public void clickMyAccountLink(){
         clickElement(myAccountLink);
         LOGGER.info("My accoount clicked");
+    }
+    public void clickLogOut(){
+        clickElement(clickLogOut);
+        LOGGER.info("Logout clicked");
     }
     public void verifyAppMenu() {
         verifyDisplayed(appMenu, "App Menu is not displayed");
