@@ -14,7 +14,7 @@ public class LoginPage extends BasePage{
     private WebElement usernameInput;
 
     @FindBy(xpath = "//button[@class='-esm-login__login__continueButton___VnN+0 cds--btn cds--btn--primary']")
-    private WebElement contınueBtn;
+    private WebElement continueBtn;
 
     @FindBy(xpath = "//input[@id='password']")
     private WebElement passwordInput;
@@ -38,16 +38,26 @@ public class LoginPage extends BasePage{
         super(driver);
     }
 
-    public void checkPage() {
+    public void checkPageUsername() {
         verifyDisplayed(usernameInput, "The login page did not open (username field not found).");
-        verifyDisplayed(passwordInput, "he login page did not open (password field not found).");
-        verifyDisplayed(loginBtn,      "The login page did not open (login button not found).");
         verifyDisplayed(openMRSText, "The login page did not open (login text not found)");
+        verifyDisplayed(continueBtn,"contınue button is not visible");
+        LOGGER.info("Login page 1 verified");
+    }
+    public void checkPagePassword() {
+        verifyDisplayed(passwordInput, "The login page did not open (password field not found).");
+        verifyDisplayed(loginBtn,      "The login page did not open (login button not found).");
+        LOGGER.info("Login page 2 verified");
+    }
+    public void checkPageLocation() {
+        verifyDisplayed(outpatientClinicSelectBtn, "OutpatientClinic Selection is not visible.");
         verifyDisplayed(welcomeAdminText, "The welcome admin text is not visible. ");
-        verifyDisplayed(invalidMessage, "Invalid login message not displayed");
-        verifyDisplayed(contınueBtn,"contınue button is not visible");
         verifyDisplayed(confirmBtn,"confirm button is not visible");
-        LOGGER.info("Login page verified");
+        LOGGER.info("Location page verified");
+    }
+        public void checkPage() {
+            verifyDisplayed(invalidMessage, "Invalid login message not displayed");
+            LOGGER.info("Invalid message verified");
     }
 
     public void fillLoginForm(final String username, final String password) {
@@ -73,7 +83,7 @@ public class LoginPage extends BasePage{
     }
 
     public void clickContinueBtn(){
-        clickElement(contınueBtn);
+        clickElement(continueBtn);
         LOGGER.info("Contınue button clicked");
     }
 
