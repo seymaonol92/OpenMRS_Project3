@@ -1,4 +1,4 @@
-package US409_PatientRecordMerge;
+package US408_PatientListing;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeClass;
