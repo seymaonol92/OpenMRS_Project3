@@ -97,6 +97,7 @@ public class PatientRegistrationPage extends BasePage {
         enterPatientBirthdate(dob);
         enterPatientAddress(address);
         clickRegisterPatientButton();
-        LOGGER.info("Hasta kayıt formu gönderildi.");
+        LOGGER.info("---Hasta kayıt formu gönderildi.---");
+
     }
 }
