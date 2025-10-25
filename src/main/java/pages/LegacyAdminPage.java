@@ -10,7 +10,7 @@ public class LegacyAdminPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(id = "adminui-managePatients-app") // ID'ye göre daha stabil olabilir
+    @FindBy(xpath = "//div[@class='adminMenuList']//h4[normalize-space(text())='Patients']/following-sibling::ul//a[normalize-space(text())='Manage Patients']")
     private WebElement managePatientsButton;
 
     @FindBy(xpath = "//h1[contains(text(), 'Legacy Administration')]")
@@ -23,6 +23,9 @@ public class LegacyAdminPage extends BasePage {
     }
 
     public void clickManagePatients() {
+        for (String windowHandle : driver.getWindowHandles()) {
+            driver.switchTo().window(windowHandle);
+        }
         clickElement(managePatientsButton);
         LOGGER.info("'Manage Patients' butonuna tıklandı.");
     }

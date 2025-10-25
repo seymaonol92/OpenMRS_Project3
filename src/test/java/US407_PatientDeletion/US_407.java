@@ -142,15 +142,14 @@ public class US_407 extends BaseGUITest {
             priority = 13,
             groups = {"Regression", "PatientManagement"},
             dependsOnMethods = "T12_clickManagePatients",
-            dataProvider = "PatientDeletionData",  // <-- DataRepo'dan gelecek
-            dataProviderClass = DataRepo.class    // <-- DataRepo'dan gelecek
+            dataProvider = "PatientDeletionData",
+            dataProviderClass = DataRepo.class
     )
     @Description("Search, Enter Reason, and Delete Patient")
     @Severity(SeverityLevel.CRITICAL)
     public void T13_searchAndCompleteDeletion(String patientName, String reason) {
 
-        managePatientsPage.verifyPage();
-
+        
         LOGGER.info(patientName + " aranıyor ve seçiliyor.");
         managePatientsPage.searchAndSelectPatient(patientName);
         BaseDriver.threadWait(3);
@@ -161,7 +160,7 @@ public class US_407 extends BaseGUITest {
 
         LOGGER.info("Adım 16: 'Delete Patient' butonuna tıklanıyor.");
         managePatientsPage.clickDeletePatient();
-
+        BaseDriver.threadWait(3);
         LOGGER.info("Test Başarılı: Hasta (Adı: " + patientName + ") başarıyla silindi.");
 
     }

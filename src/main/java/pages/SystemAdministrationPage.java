@@ -10,10 +10,10 @@ public class SystemAdministrationPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(linkText = "Legacy Admin")
+    @FindBy(xpath = "//div[@class='-esm-system-admin__card__content___5RuBL']")
     private WebElement legacyAdminButton;
 
-    @FindBy(xpath = "//h1[contains(text(), 'System Administration')]")
+    @FindBy(xpath = "//*[@id=\"single-spa-application:@openmrs/esm-system-admin-app-page-0\"]/div/div[2]/div/div[2]/div/a/div[1]/div[1]")
     private WebElement pageHeader;
 
     public void verifyPage() {

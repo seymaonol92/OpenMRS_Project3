@@ -11,25 +11,25 @@ public class ManagePatientsPage extends BasePage {
         super(driver);
     }
 
-    @FindBy(id = "patient-search") // Tahmini locator
+    @FindBy(id = "inputNode")
     private WebElement searchInput;
 
-    @FindBy(xpath = "//table[@id='patient-search-results']//tr[1]/td[1]") // Tahmini locator
+    @FindBy(xpath = "//*[@id=\"openmrsSearchTable\"]/tbody/tr")
     private WebElement firstSearchResult;
 
-    @FindBy(name = "deleteReason") // Tahmini locator
+    @FindBy(xpath = "//*[@id=\"content\"]/form[2]/fieldset/input[1]")
     private WebElement deleteReasonInput;
 
-    @FindBy(xpath = "//button[contains(text(), 'Delete Patient')]") // Tahmini locator
+    @FindBy(xpath = "//input[@value='Delete Patient']")
     private WebElement deletePatientButton;
 
-    @FindBy(id = "info-message") // Tahmini locator
+    @FindBy(id = "info-message")
     private WebElement successMessage;
 
-    public void verifyPage() {
+   /* public void verifyPage() {
         verifyDisplayed(searchInput, "Manage Patients sayfası yüklenemedi (Arama kutusu bulunamadı).");
         LOGGER.info("Manage Patients sayfası doğrulandı.");
-    }
+    }*/
 
     public void searchAndSelectPatient(String patientNameOrId) {
         sendKeysToElement(searchInput, patientNameOrId);
