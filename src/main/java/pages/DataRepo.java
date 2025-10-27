@@ -3,11 +3,17 @@ package pages;
 import org.testng.annotations.DataProvider;
 
 public class DataRepo {
-    @DataProvider(name = "LoginData", parallel = true)
-    public Object[][] getLoginData(){
+    @DataProvider(name = "UsernameData", parallel = true)
+    public Object[][] getUsernameData(){
         return new Object[][]{
-                {"username", "admin"},
-                {"password", "Admin123"}
+                {"admin"},
+        };
+    }
+
+    @DataProvider(name = "PasswordData", parallel = true)
+    public Object[][] getPasswordData(){
+        return new Object[][]{
+                {"Admin123"},
         };
     }
     @DataProvider(name = "PatientData", parallel = true)

@@ -6,23 +6,26 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.WebDriver;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pages.DashboardPage;
-import pages.DataRepo;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.*;
 import utility.BaseDriver;
+import utility.BaseGUITest;
 
-public class US405 {
+public class US_405 extends BaseGUITest {
 
-    WebDriver driver;
     LoginPage loginPage;
     HomePage homePage;
     DashboardPage dashboardPage;
 
-    private static final Logger LOGGER = LogManager.getLogger(US405.class);
+    private static final Logger LOGGER = LogManager.getLogger(US_405.class);
 
+    @BeforeClass(alwaysRun = true)
+    public void setupPages() {
+        homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
+        dashboardPage = new DashboardPage(driver);
+    }
     @Test(priority = 1, groups = {"smoke"})
     @Description("Verify that home page is visible successfully")
     @Severity(SeverityLevel.CRITICAL)
@@ -65,7 +68,7 @@ public class US405 {
         BaseDriver.threadWait(3);
     }
 
-    @Test(priority = 6, groups = {"smoke"}, dataProvider = "LoginData", dataProviderClass = DataRepo.class, dependsOnMethods = "verifyLoginPage")
+    @Test(priority = 6, groups = {"smoke"}, dataProvider = "UsernameData", dataProviderClass = DataRepo.class, dependsOnMethods = "verifyLoginPage")
     @Description("Username entered successfully")
     @Severity(SeverityLevel.CRITICAL)
     public void enterUsername(String username){
@@ -82,7 +85,7 @@ public class US405 {
         BaseDriver.threadWait(3);
     }
 
-    @Test(priority = 8, groups = {"smoke"}, dataProvider = "LoginData", dataProviderClass = DataRepo.class, dependsOnMethods = "clickContinueBtn")
+    @Test(priority = 8, groups = {"smoke"}, dataProvider = "PasswordData", dataProviderClass = DataRepo.class, dependsOnMethods = "clickContinueBtn")
     @Description("Password entered successfully")
     @Severity(SeverityLevel.CRITICAL)
     public void enterPassword(String password){
@@ -98,26 +101,23 @@ public class US405 {
         loginPage.clickLoginBtn();
         LOGGER.info("Login button clicked");
     }
-
     @Test(priority = 10, groups = {"smoke"}, dependsOnMethods = "clickLoginBtn")
-    @Description("Location selected successfully")
+    @Description("Verify that Dashboard page is visible successfully")
     @Severity(SeverityLevel.CRITICAL)
-    public void selectedLocation(){
-        loginPage.outpatientClinic();
-        LOGGER.info("Location selected");
+    public void verifyDashboardPage(){
+        dashboardPage.verifyOpenMRSText();
+        LOGGER.info("Dashboard page opened");
         BaseDriver.threadWait(3);
     }
 
-    @Test(priority = 11, groups = {"smoke"}, dependsOnMethods = "selectedLocation")
-    @Description("Confirm button clicked successfully")
+    @Test(priority = 11, groups = {"smoke"}, dependsOnMethods = "verifyDashboardPage")
+    @Description("My account link clicked successfully")
     @Severity(SeverityLevel.CRITICAL)
-    public void clickConfirmBtn(){
-        loginPage.clickConfirmBtn();
-        LOGGER.info("Confirm button clicked");
+    public void clickMyAccountLink(){
+        dashboardPage.clickMyAccountLink();
+        LOGGER.info("My account link clicked");
         BaseDriver.threadWait(3);
     }
-
-
 
 
 
