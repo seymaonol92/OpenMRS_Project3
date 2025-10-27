@@ -2,19 +2,21 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="ParallelTestSuite" parallel="classes" thread-count="10">
-    <test name="ParallelTest">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+    <test name="AllTests">
         <parameter name="BrowserType" value="chrome"/>
         <classes>
-            <class name="OpenMRS.tests.TC_401_LoginTestWithInvalidData"/>
-            <class name="OpenMRS.tests.TC_402_LoginTest"/>
-            <class name="OpenMRS.tests.TC_403_Logout"/>
-            <class name="OpenMRS.tests.TC_404_PatientRegistrationTest"/>
-            <class name="OpenMRS.tests.TC_405_AccessingMyAccountSettingsTest"/>
-            <class name="OpenMRS.tests.TC_406_PatientSearchTest"/>
-            <class name="OpenMRS.tests.TC_407_PatientDeletionTest"/>
-            <class name="OpenMRS.tests.TC_408_ToList"/>
-            <class name="OpenMRS.tests.TC_409_MergePatientTest"/>
-            <class name="OpenMRS.tests.TC_410_AppointmentTimeZoneTest"/>
+            <class name="US401_CheckingLoginErrorsInTheSystem.US_401"/>
+            <class name="US402_PerformLoginInTheSystem.US_402"/>
+            <class name="US403_PerformLogoutFromTheSystem.US_403"/>
+            <class name="US404_PatientRegistration.US_404"/>
+            <class name="US405_MyAccount.US_405"/>
+            <class name="US406_PatientSearchInPatientList.US406T1"/>
+            <class name="US407_PatientDeletion.US_407"/>
+            <class name="US408_PatientListing.US_408_patientListVerify"/>
+            <class name="US409_PatientRecordMerge.US_409"/>
         </classes>
     </test>
 </suite>
