@@ -19,8 +19,13 @@ public class DataRepo {
     @DataProvider(name = "PatientData", parallel = true)
     public Object[][] getPatientData(){
         return new Object[][]{
-                {"patient1", "Scarlett Johansson"},
-                {"patient2", "Jason Very Patient"}
+                {"Scarlett Johansson"}
+        };
+    }
+    @DataProvider(name = "InvalidPatientData", parallel = true)
+    public Object[][] getInvalidPatientData(){
+        return new Object[][]{
+                {"Invalid Patient"}
         };
     }
 
