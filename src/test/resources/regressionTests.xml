@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression Test Suite" parallel="classes" thread-count="5">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="Regression Tests">
+        <parameter name="BrowserType" value="chrome"/>
+        <groups>
+            <run>
+                <include name="Regression"/>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="US404_PatientRegistration"/>
+            <package name="US407_PatientDeletion"/>
+            <package name="US408_PatientListing"/>
+            <package name="US409_PatientRecordMerge"/>
+        </packages>
+    </test>
+</suite>
