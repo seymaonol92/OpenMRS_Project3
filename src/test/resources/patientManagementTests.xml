@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Patient Management Test Suite" parallel="classes" thread-count="5">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="Patient Management Tests">
+        <parameter name="BrowserType" value="chrome"/>
+        <groups>
+            <run>
+                <include name="Patient Management"/>
+                <include name="PatientManagement"/>
+                <include name="patient management"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="US404_PatientRegistration"/>
+            <package name="US406_PatientSearchInPatientList"/>
+            <package name="US407_PatientDeletion"/>
+            <package name="US409_PatientRecordMerge"/>
+        </packages>
+    </test>
+</suite>

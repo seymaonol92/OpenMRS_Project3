@@ -11,13 +11,13 @@ public class BaseGUITest {
     protected final Logger LOGGER = LogManager.getLogger(this.getClass());
    public WebDriver driver;
 
-    @BeforeClass
+    @BeforeClass(alwaysRun = true)
     public void init(){
         driver  = BaseDriver.driver(" https://openmrs.org/");
         LOGGER.info("Web sitesi acildi");
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void quitTest() {
         driver.quit();
         LOGGER.info("Tarayici kapandi");

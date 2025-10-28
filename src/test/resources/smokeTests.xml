@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Smoke Test Suite" parallel="classes" thread-count="5">
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <test name="Smoke Tests">
+        <parameter name="BrowserType" value="chrome"/>
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="US401_CheckingLoginErrorsInTheSystem"/>
+            <package name="US402_PerformLoginInTheSystem"/>
+            <package name="US403_PerformLogoutFromTheSystem"/>
+            <package name="US405_MyAccount"/>
+            <package name="US406_PatientSearchInPatientList"/>
+            <package name="US408_PatientListing"/>
+        </packages>
+    </test>
+</suite>

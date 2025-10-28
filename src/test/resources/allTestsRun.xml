@@ -14,6 +14,7 @@
             <class name="US404_PatientRegistration.US_404"/>
             <class name="US405_MyAccount.US_405"/>
             <class name="US406_PatientSearchInPatientList.US406T1"/>
+            <class name="US406_PatientSearchInPatientList.US406T2"/>
             <class name="US407_PatientDeletion.US_407"/>
             <class name="US408_PatientListing.US_408_patientListVerify"/>
             <class name="US409_PatientRecordMerge.US_409"/>
