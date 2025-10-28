@@ -40,7 +40,6 @@ public class US_405 extends BaseGUITest {
     public void clickDemoBtn() {
         homePage.clickDemoBtn();
         LOGGER.info("Demo button clicked");
-        BaseDriver.threadWait(3);
     }
     @Test(priority = 3, groups = {"smoke"},dependsOnMethods = "clickDemoBtn")
     @Description("Scroll down successfully")
@@ -48,7 +47,6 @@ public class US_405 extends BaseGUITest {
     public void scrollDownPage() {
         homePage.scrollDown();
         LOGGER.info("Scroll down");
-        BaseDriver.threadWait(3);
     }
     @Test(priority = 4, groups = {"smoke"}, dependsOnMethods = "scrollDownPage")
     @Description("EnterOpenMRS3 button clicked successfully")
@@ -56,7 +54,6 @@ public class US_405 extends BaseGUITest {
     public void clickEnterOpenMRS() {
         homePage.clickEnterOpenMRS();
         LOGGER.info("EnterOpenMRS3 button clicked");
-        BaseDriver.threadWait(3);
     }
 
     @Test(priority = 5, groups = {"smoke"}, dependsOnMethods = "clickEnterOpenMRS")
@@ -65,7 +62,6 @@ public class US_405 extends BaseGUITest {
     public void verifyLoginPage(){
         loginPage.checkPageUsername();
         LOGGER.info("Login page opened");
-        BaseDriver.threadWait(3);
     }
 
     @Test(priority = 6, groups = {"smoke"}, dataProvider = "UsernameData", dataProviderClass = DataRepo.class, dependsOnMethods = "verifyLoginPage")
@@ -74,7 +70,6 @@ public class US_405 extends BaseGUITest {
     public void enterUsername(String username){
         loginPage.enterUsername(username);
         LOGGER.info("Username entered");
-        BaseDriver.threadWait(3);
     }
     @Test(priority = 7, groups = {"smoke"}, dependsOnMethods = "enterUsername")
     @Description("Continue button clicked successfully")
@@ -82,7 +77,6 @@ public class US_405 extends BaseGUITest {
     public void clickContinueBtn(){
         loginPage.clickContinueBtn();
         LOGGER.info("Continue button clicked");
-        BaseDriver.threadWait(3);
     }
 
     @Test(priority = 8, groups = {"smoke"}, dataProvider = "PasswordData", dataProviderClass = DataRepo.class, dependsOnMethods = "clickContinueBtn")
@@ -91,7 +85,6 @@ public class US_405 extends BaseGUITest {
     public void enterPassword(String password){
         loginPage.enterPassword(password);
         LOGGER.info("Password entered");
-        BaseDriver.threadWait(3);
     }
 
     @Test(priority = 9, groups = {"smoke"}, dependsOnMethods = "enterPassword")
@@ -107,7 +100,6 @@ public class US_405 extends BaseGUITest {
     public void verifyDashboardPage(){
         dashboardPage.verifyOpenMRSText();
         LOGGER.info("Dashboard page opened");
-        BaseDriver.threadWait(3);
     }
 
     @Test(priority = 11, groups = {"smoke"}, dependsOnMethods = "verifyDashboardPage")
@@ -116,7 +108,6 @@ public class US_405 extends BaseGUITest {
     public void clickMyAccountLink(){
         dashboardPage.clickMyAccountLink();
         LOGGER.info("My account link clicked");
-        BaseDriver.threadWait(3);
     }
 
 

@@ -77,7 +77,15 @@ public class BasePage {
     }
 
     public void verifyDisplayed(final WebElement element, final String text) {
-        Assert.assertTrue(element.isDisplayed(), text);
+        try {
+            wait.until(ExpectedConditions.visibilityOf(element));
+            ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", element);
+            Assert.assertTrue(element.isDisplayed(), text);
+            LOGGER.debug("Element is displayed and verified");
+        } catch (Exception e) {
+            LOGGER.error("Element verification failed: " + text + " - Error: " + e.getMessage());
+            throw new RuntimeException("Element not displayed: " + text, e);
+        }
     }
 }
 

@@ -41,5 +41,13 @@ public class DataRepo {
         return new Object[][]{
                 {"Delpiero ", "The patient was discharged"}
         };
+
+    }
+    @DataProvider(name = "IDsData", parallel = true)
+    public Object[][] getIDsData() {
+        return new Object[][]{
+                {"10003YW", "100040U"}
+
+        };
     }
 }
