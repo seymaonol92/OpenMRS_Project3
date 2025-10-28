@@ -12,10 +12,10 @@ public class DashboardPage extends BasePage {
     @FindBy(xpath = "//span[contains(@class, 'currentLocationText')]")
     private WebElement locationText;
 
-    @FindBy(xpath = "//*[@id=\"single-spa-application:@openmrs/esm-primary-navigation-app-page-0\"]/div/header/div[3]/div[1]/div[1]/div/div/span/div/button/svg")
+    @FindBy(xpath = "//button[@data-testid='searchPatientIcon']")
     private WebElement searchBox;
 
-    @FindBy(xpath = "//*[@id='search-input-:rer:']")
+    @FindBy(xpath = "//input[@data-testid='patientSearchBar']")
     private WebElement sendKeySearchBox;
 
     @FindBy(xpath = "//div[@data-extension-id='add-patient-action']//button[@aria-label='Add patient']")

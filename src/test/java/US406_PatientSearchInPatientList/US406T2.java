@@ -1,7 +1,5 @@
 package US406_PatientSearchInPatientList;
 
-
-import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -13,7 +11,7 @@ import pages.*;
 import utility.BaseDriver;
 import utility.BaseGUITest;
 
-public class US406T1 extends BaseGUITest {
+public class US406T2 extends BaseGUITest{
 
 
     LoginPage loginPage;
@@ -129,27 +127,23 @@ public class US406T1 extends BaseGUITest {
         BaseDriver.threadWait(3);
     }
 
-    @Test(priority = 12, groups = {"Patient Management"}, dataProvider = "PatientData", dataProviderClass = DataRepo.class)
+    @Test(priority = 12, groups = {"Patient Management"}, dataProvider = "InvalidPatientData", dataProviderClass = DataRepo.class)
     @Description("Searched Patient entered")
     @Severity(SeverityLevel.NORMAL)
     public void searchPatient(String patient) {
-        dashboardPage.sendKeySearchBox("Scarlett Johansson");
-        LOGGER.info("Search patient done");
-        BaseDriver.threadWait(3);
-    }
+        dashboardPage.sendKeySearchBox("Invalid Patient");
+        LOGGER.info("Invalid Search patient done");
+        BaseDriver.threadWait(3);}
 
     @Test(priority = 13, groups = {"Patient Management"})
-    @Description("Searched patient successfully found")
+            @Description("Invalid Patient Text is seen")
     @Severity(SeverityLevel.NORMAL)
-    public void verifyPatientFound() {
-        findPatientPage.verifyPatientName();
-        LOGGER.info("Patient found successfully");
+    public void verifyInvalidPatientText(){
+        findPatientPage.verifyInvalidPatient();
+        LOGGER.info("Invalied Patient Text seen");
         BaseDriver.threadWait(3);
+
     }
 
 
-    @Attachment(value = "Adim sayisi", type = "text/plain")
-    public String step(String message) {
-        return message;
-    }
 }
