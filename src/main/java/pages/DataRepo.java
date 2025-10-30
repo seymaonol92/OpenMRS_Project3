@@ -50,4 +50,22 @@ public class DataRepo {
 
         };
     }
+    @DataProvider(name = "invalid login credentials")
+    public Object[][] getInvalidData() {
+        return new Object[][] {
+                {"admin1", "invalidPass1"},
+                {"admin2", "invalidPass2"},
+                {"admin3", "invalidPass3"},
+                {"admin4", "invalidPass4"},
+                {"admin5", "invalidPass5"},
+                {"admin6", "invalidPass6"}
+        };
+    }
+    @DataProvider(name = "valid login credentials")
+    public Object[][] getValidData(){
+        return new Object[][]{
+                {"admin", "Admin123"},
+        };
+
+    }
 }

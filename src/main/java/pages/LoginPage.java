@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
 
 
 public class LoginPage extends BasePage{
@@ -95,6 +96,18 @@ public class LoginPage extends BasePage{
     public void clickConfirmBtn(){
         clickElement(confirmBtn);
         LOGGER.info("confırm button clicked");
+    }
+    public void fillLoginMask(final String username, final String password) {
+        sendKeysToElement(usernameInput, username);
+        Assert.assertEquals(username, usernameInput.getAttribute("value"), "Username not entered");
+        LOGGER.info("Username entered");
+
+        clickElement(continueBtn);
+        LOGGER.info("Continue button clicked");
+
+        sendKeysToElement(passwordInput, password);
+        Assert.assertEquals(password, passwordInput.getAttribute("value"), "Password not entered");
+        LOGGER.info("Password entered");
     }
 
 }
