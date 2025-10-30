@@ -1,6 +1,7 @@
 package US402_PerformLoginInTheSystem;
 
 import US401_CheckingLoginErrorsInTheSystem.US_401;
+import io.qameta.allure.Attachment;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -66,7 +67,10 @@ public class US_402 extends BaseGUITest {
         BaseDriver.threadWait(2);
     }
 
-
+    @Attachment(value = "Adim sayisi", type = "text/plain")
+    public String step(String message) {
+        return message;
+    }
 
 
 }
