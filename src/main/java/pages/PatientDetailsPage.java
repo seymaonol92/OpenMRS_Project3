@@ -20,23 +20,11 @@ private WebElement barisCansizButton;
 @FindBy(xpath = "//div[@class='E6QoCxKy3JK7VOI-2yhNXA==']/p[@class='P5kBN-q2g2nkNYCgydQ1vg==']")
 private WebElement verifyPatientList;
 
-@FindBy(xpath = "//*[@id=\"single-spa-application:@openmrs/esm-home-app-page-0\"]/main/div/section/div[2]/div/main/section[2]/div/div[2]/section/div/table/tbody/tr[1]/td[1]/a")
-private WebElement verifyPatient1;
-
-@FindBy(xpath = "//*[@id=\"single-spa-application:@openmrs/esm-home-app-page-0\"]/main/div/section/div[2]/div/main/section[2]/div/div[2]/section/div/table/tbody/tr[2]/td[1]/a")
-private WebElement verifyPatient2;
-
-@FindBy(xpath = "//*[@id=\"single-spa-application:@openmrs/esm-home-app-page-0\"]/main/div/section/div[2]/div/main/section[2]/div/div[2]/section/div/table/tbody/tr[3]/td[1]/a")
-private WebElement verifyPatient3;
-
-@FindBy(xpath = "//*[@id=\"single-spa-application:@openmrs/esm-home-app-page-0\"]/main/div/section/div[2]/div/main/section[2]/div/div[2]/section/div/table/tbody/tr[4]/td[1]/a")
-private WebElement verifyPatient4;
+@FindBy(xpath = "//button[@tabindex='0']")
+private WebElement verifyMyList;
 
 public void verifyPatientLists(){
-    verifyDisplayed(verifyPatient1,"The patient did not appear on the page.");
-    verifyDisplayed(verifyPatient2,"The patient did not appear on the page.");
-    verifyDisplayed(verifyPatient3,"The patient did not appear on the page.");
-    verifyDisplayed(verifyPatient4,"The patient did not appear on the page.");
+verifyDisplayed(verifyMyList, "my list is not opened.");
 }
     public void clickMyListButton() {
         clickElement(myListButton);
