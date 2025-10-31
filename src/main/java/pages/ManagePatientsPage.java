@@ -26,11 +26,6 @@ public class ManagePatientsPage extends BasePage {
     @FindBy(id = "info-message")
     private WebElement successMessage;
 
-   /* public void verifyPage() {
-        verifyDisplayed(searchInput, "Manage Patients sayfası yüklenemedi (Arama kutusu bulunamadı).");
-        LOGGER.info("Manage Patients sayfası doğrulandı.");
-    }*/
-
     public void searchAndSelectPatient(String patientNameOrId) {
         sendKeysToElement(searchInput, patientNameOrId);
         LOGGER.info("Hasta arandı: " + patientNameOrId);
