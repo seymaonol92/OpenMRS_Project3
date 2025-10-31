@@ -8,7 +8,6 @@ import org.testng.Assert;
 
 public class FindPatientPage extends BasePage{
 
-
     @FindBy(xpath = "//*[text()='Scarlett Johansson']")
     private WebElement patientName;
 
@@ -25,11 +24,7 @@ public class FindPatientPage extends BasePage{
         Assert.assertTrue(invalidPatientText.isDisplayed(), "İnavlid Patient text is not seen");
         LOGGER.info("Invalid Patient text is seen");
     }
-
-
     public FindPatientPage(WebDriver driver) {
         super(driver);
     }
-
-
 }
