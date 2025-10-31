@@ -165,18 +165,12 @@ public class US_408_patientListVerify extends BaseGUITest {
     @Test(priority = 15, groups = {"Regression"})
     @Description("Clicked on the bariscansiz list")
     @Severity(SeverityLevel.CRITICAL)
-    public void clickBarisCansizBtn() {
-        patientDetailsPage.clickBarisCansizBtn();
+    public void verifyMyList() {
+        patientDetailsPage.verifyPatientLists();
         LOGGER.info("Clicked on the bariscansiz list");
     }
 
-    @Test(priority = 16, groups = {"Regression"})
-    @Description("All patients on the list have been verified.")
-    @Severity(SeverityLevel.CRITICAL)
-    public void verifyLists() {
-        patientDetailsPage.verifyPatientLists();
-        LOGGER.info("All patients on the list have been verified.");
-    }
+
 
     @Attachment(value = "Adim sayisi", type = "text/plain")
     public String step(String message) {
